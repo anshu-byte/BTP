@@ -18,8 +18,10 @@ class PhoneActivity : AppCompatActivity() {
 
     private lateinit var sendOTPBtn : Button
     private lateinit var phoneNumberET : EditText
+    private lateinit var userName : EditText
     private lateinit var auth : FirebaseAuth
     private lateinit var number : String
+    private lateinit var userName1 : String
     private lateinit var mProgressBar : ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +31,8 @@ class PhoneActivity : AppCompatActivity() {
         init()
         sendOTPBtn.setOnClickListener {
             number = phoneNumberET.text.trim().toString()
-            if (number.isNotEmpty()){
+            userName1 = userName.text.trim().toString()
+            if (userName1.isNotEmpty() && number.isNotEmpty()){
                 if (number.length == 10){
                     number = "+91$number"
                     mProgressBar.visibility = View.VISIBLE
@@ -45,7 +48,7 @@ class PhoneActivity : AppCompatActivity() {
                     Toast.makeText(this , "Please Enter correct Number" , Toast.LENGTH_SHORT).show()
                 }
             }else{
-                Toast.makeText(this , "Please Enter Number" , Toast.LENGTH_SHORT).show()
+                Toast.makeText(this , "Please enter details" , Toast.LENGTH_SHORT).show()
 
             }
         }
@@ -56,6 +59,7 @@ class PhoneActivity : AppCompatActivity() {
         mProgressBar.visibility = View.INVISIBLE
         sendOTPBtn = findViewById(R.id.sendOTPBtn)
         phoneNumberET = findViewById(R.id.phoneEditTextNumber)
+        userName = findViewById(R.id.userName)
         auth = FirebaseAuth.getInstance()
     }
 
@@ -120,6 +124,7 @@ class PhoneActivity : AppCompatActivity() {
             intent.putExtra("OTP" , verificationId)
             intent.putExtra("resendToken" , token)
             intent.putExtra("phoneNumber" , number)
+            intent.putExtra("name" , userName1)
             startActivity(intent)
             mProgressBar.visibility = View.INVISIBLE
         }

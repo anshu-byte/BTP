@@ -10,10 +10,15 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.company.cp303.MainActivity
+import com.company.cp303.data.User
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.type.DateTime
+import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
 class OTPActivity : AppCompatActivity() {
@@ -32,6 +37,7 @@ class OTPActivity : AppCompatActivity() {
     private lateinit var OTP: String
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var phoneNumber: String
+    private lateinit var userName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +46,7 @@ class OTPActivity : AppCompatActivity() {
         OTP = intent.getStringExtra("OTP").toString()
         resendToken = intent.getParcelableExtra("resendToken")!!
         phoneNumber = intent.getStringExtra("phoneNumber")!!
+        userName = intent.getStringExtra("name")!!
 
         init()
         progressBar.visibility = View.INVISIBLE
@@ -163,7 +170,16 @@ class OTPActivity : AppCompatActivity() {
     }
 
     private fun sendToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        val db = Firebase.firestore
+        val usersRef = db.collection("Users").document(auth.currentUser?.uid!!)
+        val user = User(userName, phoneNumber, auth.currentUser?.uid!!, System.currentTimeMillis())
+        usersRef.set(user)
+            .addOnSuccessListener { documentReference ->
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(applicationContext, "Failed error", Toast.LENGTH_SHORT).show();
+            }
     }
 
     private fun addTextChangeListener() {
@@ -207,7 +223,7 @@ class OTPActivity : AppCompatActivity() {
                 R.id.otpEditText3 -> if (text.length == 1) inputOTP4.requestFocus() else if (text.isEmpty()) inputOTP2.requestFocus()
                 R.id.otpEditText4 -> if (text.length == 1) inputOTP5.requestFocus() else if (text.isEmpty()) inputOTP3.requestFocus()
                 R.id.otpEditText5 -> if (text.length == 1) inputOTP6.requestFocus() else if (text.isEmpty()) inputOTP4.requestFocus()
-                R.id.otpEditText6 -> if (text.isEmpty()) inputOTP5.requestFocus()
+                R.id.otpEditText6 -> if (text.isEmpty()) inputOTP1.requestFocus()
 
             }
         }

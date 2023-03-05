@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "708500028768",
+    "firebase_url": "https://cp303-f1482-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "cp303-f1482",
     "storage_bucket": "cp303-f1482.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "708500028768-2kuagvq1f800rpnet4u0pooeabbrcpgq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.cp303",
+            "certificate_hash": "de25ff4aa0888d78ad0b75361ab5d28da2583d81"
+          }
+        },
         {
           "client_id": "708500028768-9ric72arifcl84che8mgt5ienptui5tj.apps.googleusercontent.com",
           "client_type": 3

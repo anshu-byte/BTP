@@ -19,6 +19,14 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.os.SystemClock
 import android.util.Log
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -27,6 +35,8 @@ import java.nio.channels.FileChannel
 import kotlin.math.exp
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.gpu.GpuDelegate
+import java.util.*
+import kotlin.collections.HashMap
 
 enum class BodyPart {
   NOSE,
@@ -268,6 +278,17 @@ class Posenet(
       keypointList[idx].position.y = yCoords[idx]
       keypointList[idx].score = confidenceScores[idx]
       totalScore += confidenceScores[idx]
+    }
+    // Get a reference to the Firebase Realtime Database
+    // Write a message to the database
+
+    val database = FirebaseDatabase.getInstance()
+    val ref = database.reference.child("Stream").child(FirebaseAuth.getInstance().currentUser?.uid!!)
+    for ((count, v) in keypointList.withIndex()) {
+      ref.child(count.toString()).child("bodyPart").setValue(v.bodyPart)
+      ref.child(count.toString()).child("score").setValue(v.score)
+      ref.child(count.toString()).child("position").child("x").setValue(v.position.x)
+      ref.child(count.toString()).child("position").child("y").setValue(v.position.y)
     }
 
     person.keyPoints = keypointList.toList()

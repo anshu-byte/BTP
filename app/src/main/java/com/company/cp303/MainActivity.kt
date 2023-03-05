@@ -60,7 +60,9 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.myProfile -> {
-                    Toast.makeText(this, "My Profile", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MyProfileActivity::class.java)
+                    startActivity(intent)
+//                    Toast.makeText(this, "My Profile", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.people -> {
