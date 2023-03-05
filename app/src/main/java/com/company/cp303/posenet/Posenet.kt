@@ -283,7 +283,8 @@ class Posenet(
     // Write a message to the database
 
     val database = FirebaseDatabase.getInstance()
-    val ref = database.reference.child("Stream").child(FirebaseAuth.getInstance().currentUser?.uid!!)
+    val ref = database.reference.child("Stream")
+//      .child(FirebaseAuth.getInstance().currentUser?.uid!!)
     for ((count, v) in keypointList.withIndex()) {
       ref.child(count.toString()).child("bodyPart").setValue(v.bodyPart)
       ref.child(count.toString()).child("score").setValue(v.score)
