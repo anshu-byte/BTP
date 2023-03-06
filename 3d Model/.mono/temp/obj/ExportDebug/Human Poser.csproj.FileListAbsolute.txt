@@ -1,0 +1,22 @@
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\bin\ExportDebug\Human Poser.dll
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\bin\ExportDebug\Human Poser.pdb
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\bin\ExportDebug\Newtonsoft.Json.dll
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.csproj.AssemblyReference.cache
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.AssemblyInfoInputs.cache
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.AssemblyInfo.cs
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.csproj.CoreCompileInputs.cache
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.csproj.CopyComplete
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.dll
+D:\Project-BTP\HumanPoser_breakdancing\.mono\temp\obj\ExportDebug\Human Poser.pdb
+D:\Project-BTP\HumanPoser_new\.mono\temp\bin\ExportDebug\Human Poser.dll
+D:\Project-BTP\HumanPoser_new\.mono\temp\bin\ExportDebug\Human Poser.pdb
+D:\Project-BTP\HumanPoser_new\.mono\temp\bin\ExportDebug\Newtonsoft.Json.dll
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.csproj.AssemblyReference.cache
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.AssemblyInfoInputs.cache
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.AssemblyInfo.cs
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.csproj.CoreCompileInputs.cache
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.csproj.CopyComplete
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.dll
+D:\Project-BTP\HumanPoser_new\.mono\temp\obj\ExportDebug\Human Poser.pdb

@@ -1,0 +1,98 @@
+[
+    {
+        "bodyPart": "LEFT_SHOULDER",
+        "position": {
+            "x": 1.77348745,
+            "y": -13.3850117
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "RIGHT_SHOULDER",
+        "position": {
+            "x": -1.77348745,
+            "y": -13.3850117
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "LEFT_ELBOW",
+        "position": {
+            "x": 3.41652,
+            "y": -11.5344677
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "RIGHT_ELBOW",
+        "position": {
+            "x": -3.41652,
+            "y": -11.5344677
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "LEFT_WRIST",
+        "position": {
+            "x": 4.64924335,
+            "y": -11.3484888
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "RIGHT_WRIST",
+        "position": {
+            "x": -4.64924335,
+            "y": -10.3484888
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "LEFT_HIP",
+        "position": {
+            "x": 0.9362055,
+            "y": -8.220213
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "RIGHT_HIP",
+        "position": {
+            "x": -0.9362055,
+            "y": -8.220213
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "LEFT_KNEE",
+        "position": {
+            "x": 1.38631427,
+            "y": -4.78811836
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "RIGHT_KNEE",
+        "position": {
+            "x": -1.38631427,
+            "y": -4.78811836
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "LEFT_ANKLE",
+        "position": {
+            "x": 1.86998892,
+            "y": -0.678689
+        },
+        "score": 1.0
+    },
+    {
+        "bodyPart": "RIGHT_ANKLE",
+        "position": {
+            "x": -1.86998892,
+            "y": -0.678689
+        },
+        "score": 1.0
+    }
+]
