@@ -38,6 +38,8 @@ import org.tensorflow.lite.gpu.GpuDelegate
 import java.util.*
 import kotlin.collections.HashMap
 
+var resolution_height = 0
+var resolution_width = 0
 enum class BodyPart {
   NOSE,
   LEFT_EYE,
@@ -78,6 +80,11 @@ enum class Device {
   CPU,
   NNAPI,
   GPU
+}
+
+class Resolution{
+  var height: Int = 0
+  var width: Int = 0
 }
 
 class Posenet(
@@ -230,6 +237,8 @@ class Posenet(
 
     val height = heatmaps[0].size
     val width = heatmaps[0][0].size
+    resolution_height = height
+    resolution_width = width
     val numKeypoints = heatmaps[0][0][0].size
 
     // Finds the (row, col) locations of where the keypoints are most likely to be.
@@ -281,15 +290,38 @@ class Posenet(
     }
     // Get a reference to the Firebase Realtime Database
     // Write a message to the database
+    var orig_x_min = 0
+    var orig_x_max = 1080
+    var orig_y_min = 0
+    var orig_y_max = 2048
 
+    var target_x_min = -6
+    var target_x_max = 6
+    var target_y_min = 0
+    var target_y_max = -16
+//    var x_scale = (target_x_max - target_x_min) / (orig_x_max - orig_x_min)
+//    var y_scale = (target_y_max - target_y_min) / (orig_y_max - orig_y_min)
     val database = FirebaseDatabase.getInstance()
     val ref = database.reference.child("Stream")
 //      .child(FirebaseAuth.getInstance().currentUser?.uid!!)
     for ((count, v) in keypointList.withIndex()) {
       ref.child(count.toString()).child("bodyPart").setValue(v.bodyPart)
       ref.child(count.toString()).child("score").setValue(v.score)
-      ref.child(count.toString()).child("position").child("x").setValue(v.position.x)
-      ref.child(count.toString()).child("position").child("y").setValue(v.position.y)
+//      Log.e("x",v.position.x.toString())
+//      var scaled_x = (v.position.x - orig_x_min) / (orig_x_max - orig_x_min) * (target_x_max - target_x_min) + target_x_min - (target_x_max - target_x_min) / 2
+//      var scaled_y = (v.position.y - orig_y_min) / (orig_y_max - orig_y_min) * (target_y_max - target_y_min) + target_y_min - (target_y_max - target_y_min) / 2
+//      Log.e("scaled_x",scaled_x.toString())
+//      Log.e("scaled_y",scaled_y.toString())
+//      var scaled_x = (v.position.x - orig_x_min) * x_scale + target_x_min
+//      var scaled_y = (v.position.y - orig_y_min) * y_scale + target_y_min
+//
+      var scaledX = -6 + ((12.0*v.position.x)/257.0)
+      var scaledY = -16 + ((16.0*v.position.y)/257.0)
+      ref.child(count.toString()).child("position").child("x").setValue(scaledX)
+//      ref.child(count.toString()).child("position").child("x").setValue(scaled_x)
+      ref.child(count.toString()).child("position").child("y").setValue(scaledY)
+//      ref.child(count.toString()).child("position").child("y").setValue(scaled_y)
+
     }
 
     person.keyPoints = keypointList.toList()

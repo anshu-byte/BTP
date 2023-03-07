@@ -463,6 +463,8 @@ class PosenetActivity :
     val right: Int
     val top: Int
     val bottom: Int
+    Log.e("screenWidth",canvas.width.toString())
+    Log.e("screenHeight",canvas.height.toString())
     if (canvas.height > canvas.width) {
       screenWidth = canvas.width
       screenHeight = canvas.width
@@ -476,7 +478,10 @@ class PosenetActivity :
     }
     right = left + screenWidth
     bottom = top + screenHeight
-
+//    Log.e("left",left.toString())
+//    Log.e("right",right.toString())
+//    Log.e("top",top.toString())
+//    Log.e("bottom",bottom.toString())
     setPaint()
     canvas.drawBitmap(
       bitmap,
@@ -488,15 +493,23 @@ class PosenetActivity :
     val widthRatio = screenWidth.toFloat() / MODEL_WIDTH
     val heightRatio = screenHeight.toFloat() / MODEL_HEIGHT
 
+    Log.e("widthRatio",widthRatio.toString())
+    Log.e("heightRatio",heightRatio.toString())
+
+
+
     // Draw key points over the image.
     for (keyPoint in person.keyPoints) {
       if (keyPoint.score > minConfidence) {
         val position = keyPoint.position
         val adjustedX: Float = position.x.toFloat() * widthRatio + left
         val adjustedY: Float = position.y.toFloat() * heightRatio + top
+        Log.e("adjustedX",adjustedX.toString())
+        Log.e("adjustedY",adjustedY.toString())
         canvas.drawCircle(adjustedX, adjustedY, circleRadius, paint)
       }
     }
+
 
     for (line in bodyJoints) {
       if (
