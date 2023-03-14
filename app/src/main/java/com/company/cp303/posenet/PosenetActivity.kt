@@ -463,8 +463,8 @@ class PosenetActivity :
     val right: Int
     val top: Int
     val bottom: Int
-    Log.e("screenWidth",canvas.width.toString())
-    Log.e("screenHeight",canvas.height.toString())
+//    Log.e("screenWidth",canvas.width.toString())
+//    Log.e("screenHeight",canvas.height.toString())
     if (canvas.height > canvas.width) {
       screenWidth = canvas.width
       screenHeight = canvas.width
@@ -493,8 +493,8 @@ class PosenetActivity :
     val widthRatio = screenWidth.toFloat() / MODEL_WIDTH
     val heightRatio = screenHeight.toFloat() / MODEL_HEIGHT
 
-    Log.e("widthRatio",widthRatio.toString())
-    Log.e("heightRatio",heightRatio.toString())
+//    Log.e("widthRatio",widthRatio.toString())
+//    Log.e("heightRatio",heightRatio.toString())
 
 
 
@@ -504,8 +504,8 @@ class PosenetActivity :
         val position = keyPoint.position
         val adjustedX: Float = position.x.toFloat() * widthRatio + left
         val adjustedY: Float = position.y.toFloat() * heightRatio + top
-        Log.e("adjustedX",adjustedX.toString())
-        Log.e("adjustedY",adjustedY.toString())
+//        Log.e("adjustedX",adjustedX.toString())
+//        Log.e("adjustedY",adjustedY.toString())
         canvas.drawCircle(adjustedX, adjustedY, circleRadius, paint)
       }
     }

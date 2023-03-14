@@ -290,38 +290,18 @@ class Posenet(
     }
     // Get a reference to the Firebase Realtime Database
     // Write a message to the database
-    var orig_x_min = 0
-    var orig_x_max = 1080
-    var orig_y_min = 0
-    var orig_y_max = 2048
-
-    var target_x_min = -6
-    var target_x_max = 6
-    var target_y_min = 0
-    var target_y_max = -16
-//    var x_scale = (target_x_max - target_x_min) / (orig_x_max - orig_x_min)
-//    var y_scale = (target_y_max - target_y_min) / (orig_y_max - orig_y_min)
     val database = FirebaseDatabase.getInstance()
     val ref = database.reference.child("Stream")
 //      .child(FirebaseAuth.getInstance().currentUser?.uid!!)
     for ((count, v) in keypointList.withIndex()) {
-      ref.child(count.toString()).child("bodyPart").setValue(v.bodyPart)
-      ref.child(count.toString()).child("score").setValue(v.score)
-//      Log.e("x",v.position.x.toString())
-//      var scaled_x = (v.position.x - orig_x_min) / (orig_x_max - orig_x_min) * (target_x_max - target_x_min) + target_x_min - (target_x_max - target_x_min) / 2
-//      var scaled_y = (v.position.y - orig_y_min) / (orig_y_max - orig_y_min) * (target_y_max - target_y_min) + target_y_min - (target_y_max - target_y_min) / 2
-//      Log.e("scaled_x",scaled_x.toString())
-//      Log.e("scaled_y",scaled_y.toString())
-//      var scaled_x = (v.position.x - orig_x_min) * x_scale + target_x_min
-//      var scaled_y = (v.position.y - orig_y_min) * y_scale + target_y_min
-//
-      var scaledX = -6 + ((12.0*v.position.x)/257.0)
-      var scaledY = -16 + ((16.0*v.position.y)/257.0)
-      ref.child(count.toString()).child("position").child("x").setValue(scaledX)
-//      ref.child(count.toString()).child("position").child("x").setValue(scaled_x)
-      ref.child(count.toString()).child("position").child("y").setValue(scaledY)
-//      ref.child(count.toString()).child("position").child("y").setValue(scaled_y)
-
+      if(v.score>0.50) {
+        ref.child(count.toString()).child("bodyPart").setValue(v.bodyPart)
+        ref.child(count.toString()).child("score").setValue(v.score)
+        var scaled_x = -6 + ((12.0 * v.position.x) / 257.0)
+        var scaled_y = -16 + ((16.0 * v.position.y) / 257.0)
+        ref.child(count.toString()).child("position").child("x").setValue(scaled_x)
+        ref.child(count.toString()).child("position").child("y").setValue(scaled_y)
+      }
     }
 
     person.keyPoints = keypointList.toList()
