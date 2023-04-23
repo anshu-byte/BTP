@@ -386,9 +386,9 @@ public class main : Spatial
             case BodyPart.RIGHT_KNEE:
                 return getNameForPart(BodyPart.RIGHT_HIP);
             case BodyPart.LEFT_HIP:
-                return "pelvis";
+                return "";
             case BodyPart.RIGHT_HIP:
-                return "pelvis";
+                return "";
             case BodyPart.LEFT_SHOULDER:
                 return "clavicle_l";
             case BodyPart.RIGHT_SHOULDER:
