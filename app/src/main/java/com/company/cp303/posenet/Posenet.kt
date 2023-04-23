@@ -297,10 +297,10 @@ class Posenet(
       if(v.score>0.50) {
         ref.child(count.toString()).child("bodyPart").setValue(v.bodyPart)
         ref.child(count.toString()).child("score").setValue(v.score)
-        var scaled_x = -6 + ((12.0 * v.position.x) / 257.0)
-        var scaled_y = -16 + ((16.0 * v.position.y) / 257.0)
-        ref.child(count.toString()).child("position").child("x").setValue(scaled_x)
-        ref.child(count.toString()).child("position").child("y").setValue(scaled_y)
+//        var scaled_x = -6 + ((12.0 * v.position.x) / 257.0)
+//        var scaled_y = -16 + ((16.0 * v.position.y) / 257.0)
+        ref.child(count.toString()).child("position").child("x").setValue(v.position.x.toDouble()/bitmap.width)
+        ref.child(count.toString()).child("position").child("y").setValue(v.position.y.toDouble()/bitmap.height)
       }
     }
 
