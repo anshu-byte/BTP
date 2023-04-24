@@ -147,17 +147,17 @@ public class main : Spatial
     public void applyPose(List<KeyPoint> points)
     {
 
-        var upperPartbones = upperParts();
+        // var upperPartbones = upperParts();
 
-        for(var i=0;  i<points.Count; i++){
-            var kp = points[i];
-            if(upperPartbones.Contains(kp.bodyPart)){
-                var pos = kp.position;
-                pos.y -= 0.05F;
-                kp.position = pos;
-                points[i]=kp;
-            }
-        }
+        // for(var i=0;  i<points.Count; i++){
+        //     var kp = points[i];
+        //     if(upperPartbones.Contains(kp.bodyPart)){
+        //         var pos = kp.position;
+        //         pos.y -= 0.05F;
+        //         kp.position = pos;
+        //         points[i]=kp;
+        //     }
+        // }
         drawPose.drawPose(points);
 
         this.points = points;
@@ -255,9 +255,9 @@ public class main : Spatial
                 gd.origin = camera_origin;
                 mesh.GlobalTransform = gd;
                 var scale = new Vector3();
-                scale.x = 0F;
-                scale.y = 0F;
-                scale.z = 0F;
+                scale.x = 0.01F;
+                scale.y = 0.01F;
+                scale.z = 0.01F;
                 mesh.Scale = scale;
 
 
