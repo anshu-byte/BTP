@@ -1,0 +1,11 @@
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\bin\ExportRelease\Human Poser.dll
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\bin\ExportRelease\Human Poser.pdb
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\bin\ExportRelease\Newtonsoft.Json.dll
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.csproj.AssemblyReference.cache
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.AssemblyInfoInputs.cache
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.AssemblyInfo.cs
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.csproj.CoreCompileInputs.cache
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.csproj.CopyComplete
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.dll
+D:\Project-BTP\project\BTP\HumanPoserFinal\.mono\temp\obj\ExportRelease\Human Poser.pdb

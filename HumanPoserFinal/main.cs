@@ -255,9 +255,9 @@ public class main : Spatial
                 gd.origin = camera_origin;
                 mesh.GlobalTransform = gd;
                 var scale = new Vector3();
-                scale.x = 0.3F;
-                scale.y = 0.3F;
-                scale.z = 0.3F;
+                scale.x = 0F;
+                scale.y = 0F;
+                scale.z = 0F;
                 mesh.Scale = scale;
 
 
